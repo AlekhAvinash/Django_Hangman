@@ -1,0 +1,18 @@
+{% extends "main.html" %}
+
+{% block game %}
+<div style="backdrop-filter: blur(5px); padding-right: 3rem !important; padding-left: 3rem !important;" class="my-5 py-5 d-flex flex-row">
+    <img src="../static/img/noose.svg" class="mx-5">
+    <div class="pe-5 me-5 d-flex flex-column">
+        <div class="fs-1">
+            Hangman!
+        </div>
+        <div>
+            Hangman is a word guessing game for two or more players. One player thinks of a word and represents it with dashes. The other player(s) guess letters one at a time. Correct guesses reveal the letter's position, while incorrect guesses lead to drawing a hangman figure. The game continues until the word is guessed or the hangman figure is completed. It's a fun way to improve vocabulary and spelling.
+        </div>
+        <div class="mt-3">
+            But don't hang out here! Go try playing the game!!
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,5 +1,13 @@
 {% extends "game.html" %}
 
+{% block point %}
+    {{ ostr.ptrs }}
+{% endblock %}
+
+{% block hint %}
+    {{ ostr.hint }}
+{% endblock %}
+
 {% block hangmann %}
     <svg xmlns="http://www.w3.org/2000/svg" stroke="white" stroke-width="4" height="300" width="400">
         <g id="body">
@@ -27,10 +35,6 @@
         <line x1="100" y1="20" x2="200" y2="20" />
         <line x1="200" y1="20" x2="200" y2="60" />
     </svg>
-{% endblock %}
-
-{% block hint %}
-    {{ ostr.ptrs }}
 {% endblock %}
 
 {% block gameword %}

@@ -1,5 +1,4 @@
 function start(){
-    console.log("hello!")
     $('#keycover').addClass("d-none");
     for (i = 97; i <= 122; i++) {
         $.id = "#button-".concat(String.fromCharCode(i));
@@ -30,6 +29,7 @@ function start(){
         success: function(data){
             $("#xtcword").text(data.out);
             $("#xtcscre").text(data.ptr);
+            $('#xtchint').text(data.hnt);
         },
         error: function(error){
             console.log(error);

@@ -10,21 +10,22 @@ def app(request):
             "stk": key.clr,
             "val": key.val,
             "out": ostr.cstr,
+            "hnt": ostr.hint,
             "ctr": ostr.ictr,
             "win": ostr.winn,
             "ptr": str(ostr.ptrs),
         }
-        print(rep)
         return JsonResponse(rep, safe=False)
     elif request.method == "POST" and request.POST["opt"] == "start":
-        ostr.start("Fire Palace")
+        ostr.start()
         rep = {
             "out": ostr.cstr,
             "ptr": ostr.ptrs,
+            "hnt": ostr.hint,
         }
         return JsonResponse(rep, safe=False)
     else:
-        ostr.start("Fire Palace")
+        ostr.start()
         getr = lambda inp: list(map(ostr.kfnd, inp))
         context = {
             "keys": [
@@ -35,3 +36,7 @@ def app(request):
             "ostr": ostr,
         }
         return render(request, "gamebase.html", context)
+
+
+def about(request):
+    return render(request, "about.html")

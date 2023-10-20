@@ -1,40 +1,52 @@
 {% extends "main.html" %}
 
 {% block game %}
-<div id="xtcgame" class="my-4 d-flex flex-row">
-    <div class="mx-5 my-3 p-3 border border-5 rounded text-light">
-        <div class="fs-1 border-2 border-bottom border-danger">
-            High Score
-        </div>
-    </div>
-    <div class="p-2">
-        <div class="d-flex justify-content-center">
-            {% block hangmann %}{% endblock %}
-        </div>
-        <div style="background-color: var(--bs-primary)" class="text-light d-flex justify-content-center border border-5 rounded">
-            <div class="fs-1 d-flex justify-content-center px-3">
-                <a>Score: </a>
-                <div id="xtcscre">
-                    {% block hint %}{% endblock %}
-                </div>    
-            </div>
+<div id="xtcmain">
+    <div class="mt-4 d-flex flex-row">
+        <!-- Info box -->
+        <div class="d-flex flex-column">
+            <!-- Hint and Score -->
+            <div style="background-color: var(--bs-primary)" class="text-light d-flex flex-row p-3 border border-5 rounded">
+                <div class="fs-1 d-flex justify-content-center px-3">
+                    <div id="xtcscre">
+                        {% block point %}{% endblock %}
+                    </div>
+                </div>
             <div class="vr"></div>
             <div class="d-flex justify-content-center px-3 py-1">
-                <a>Hint:</a>
-                <div>Fire Palace</div>
+                <div id="xtchint" style="width: 10rem;" class="text-wrap">
+                    {% block hint %}{% endblock %}
+                </div>
+            </div>
+            </div>
+            <!-- Score -->
+            <div style="background-color: var(--bs-primary)" class="text-light d-flex justify-content-center p-3 my-4 border border-5 rounded">
+                <div class="fs-1 border-2 border-bottom border-danger">
+                    High Scores
+                </div>
+
             </div>
         </div>
-        <div id="xtcword" style="letter-spacing: 3px" class="text-light d-flex justify-content-center fs-1">
-            {% block gameword %}{% endblock %}
-        </div>
-        <div class="my-4 d-flex justify-content-center position-relative">
-            <div>
-                {% block keyboard %}{% endblock %}
+        <!-- Game Box -->
+        <div class="mx-4 p-2 border border-5 rounded shadow-lg" style="background-color: var(--bs-dark)">
+            <!-- Hangman Image -->
+            <div class="d-flex justify-content-center">
+                {% block hangmann %}{% endblock %}
             </div>
-            <div id="keycover" style="backdrop-filter: blur(20px); padding-right: 11rem !important; padding-left: 11rem !important;" class="d-none py-5 position-absolute top-0 fs-1">
-                <button href="" class="btn btn-outline-primary mx-1">
-                    New Game
-                </button>
+            <!-- Blank Spaces -->
+            <div id="xtcword" style="letter-spacing: 3px" class="text-light d-flex justify-content-center fs-1">
+                {% block gameword %}{% endblock %}
+            </div>
+            <!-- Keyboard -->
+            <div class="my-4 d-flex justify-content-center position-relative">
+                <div>
+                    {% block keyboard %}{% endblock %}
+                </div>
+                <div id="keycover" style="backdrop-filter: blur(20px); padding-right: 11rem !important; padding-left: 11rem !important;" class="d-none py-5 position-absolute top-0 fs-1">
+                    <button href="" class="btn btn-outline-primary mx-1">
+                        New Game
+                    </button>
+                </div>
             </div>
         </div>
     </div>

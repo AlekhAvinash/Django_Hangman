@@ -1,4 +1,6 @@
 from string import ascii_lowercase as asl
+from json import load
+from random import choice
 
 
 class cell:
@@ -16,18 +18,22 @@ class cell:
 
 
 class word:
-    def __init__(self, word: str = "Fire Palace") -> None:
+    def __init__(self, dicv) -> None:
+        self.dicv = dicv
         self.kfnd = lambda a: [j for j in self.keys if j.val == a][0]
         self.keys = [cell(i) for i in asl]
-        self.start(word)
+        self.start()
 
-    def start(self, word):
-        self.word = word.lower()
+    def start(self, word: str = None):
+        if not word:
+            self.word, self.hint = choice(list(self.dicv.items()))
+            self.hint = self.hint[0].split("; ")[0]
+        self.word = self.word.lower()
         self.chLt = {i: True for i in set(self.word) if i in asl}
         self.ictr = 0
         self.cstr = ""
         self.winn = False
-        self.ptrs = 100
+        self.ptrs = 6
         self.update()
 
     def update(self) -> None:
@@ -63,4 +69,4 @@ class word:
         return key
 
 
-ostr = word()
+ostr = word(load(open("game/static/out.txt")))

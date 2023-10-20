@@ -4,4 +4,5 @@ from .views import *
 
 urlpatterns = [
     path("", csrf_exempt(app)),
+    path("about", about),
 ]
